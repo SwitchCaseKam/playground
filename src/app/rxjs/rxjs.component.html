@@ -1,8 +1,9 @@
+<br><br>
 <mat-selection-list [multiple]="false">
     <b>Topics</b>
     <br>
-    <mat-list-option routerLink="switchMap-mergeMap-concatMap-exhaustMap">
-        <b>* switchMap vs mergeMap vs concatMap vs exhaustMap</b>
+    <mat-list-option *ngFor="let i of topics" routerLink="{{i[1]}}">
+        <b>{{i[0]}}</b>
     </mat-list-option>
 </mat-selection-list>
 

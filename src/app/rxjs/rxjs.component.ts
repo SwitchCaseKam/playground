@@ -7,14 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RxjsComponent implements OnInit {
 
-  public topics: Map<string, string> = new Map([
+  public topics: string[][] = [
     ['switchMap vs mergeMap vs concatMap vs exhaustMap', 'switchMap-mergeMap-concatMap-exhaustMap']
-  ]);
+  ];
 
   constructor() { }
 
   public ngOnInit(): void {
-    console.log('RXJS component on init')
   }
 
 }

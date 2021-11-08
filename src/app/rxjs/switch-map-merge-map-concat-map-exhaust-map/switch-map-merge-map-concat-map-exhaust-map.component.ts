@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { fromEvent, Observable, of, Subscriber, Subscription } from 'rxjs';
+import { fromEvent, Observable, of, OperatorFunction, Subscriber, Subscription } from 'rxjs';
 import { concatMap, exhaustMap, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 interface Rectangle {
@@ -13,7 +13,7 @@ interface Rectangle {
   templateUrl: './switch-map-merge-map-concat-map-exhaust-map.component.html',
   styleUrls: ['./switch-map-merge-map-concat-map-exhaust-map.component.css']
 })
-export class SwitchMapMergeMapConcatMapExhaustMapComponent implements OnInit {
+export class SwitchMapMergeMapConcatMapExhaustMapComponent implements OnInit, OnDestroy {
 
   public operatorFunctionsChoice: FormGroup = new FormGroup({});
   public operatorFunctions: string[] = ['mergeMap', 'switchMap', 'concatMap', 'exhaustMap'];
@@ -39,79 +39,53 @@ export class SwitchMapMergeMapConcatMapExhaustMapComponent implements OnInit {
 
   public ngOnInit(): void {
     this.operatorFunctionsChoice = this.createOperatorFunctionsFromGroup();
+    this.defineButtonStream();
+    this.subscribeToStreamButton();
+  }
 
+  public ngOnDestroy(): void {
+    this.streamSubscription?.unsubscribe();
+  }
+
+  private defineButtonStream(): void {
     const button = document.getElementById('streamOnButton');
     if (button) {
-      this.buttonStream = fromEvent<PointerEvent>(button, 'click')
+      this.buttonStream = fromEvent<PointerEvent>(button, 'click');
     }
+  }
 
-    this.operatorFunctionsChoice.get('mode')?.valueChanges.pipe(
-      ).subscribe(
-        data => {
-          this.clearRectangleData();
-          console.log(data)
-          switch(data) {
-            case 'switchMap':
-              this.switchMap()
-              break;
-            case 'mergeMap':
-              this.mergeMap();
-              break;
-            case 'concatMap':
-              this.concatMap();
-              break;
-            case 'exhaustMap':
-              this.exhaustMap();
-              break;
-          }
+  private subscribeToStreamButton(): void {
+    this.operatorFunctionsChoice.get('mode')?.valueChanges.subscribe(
+      data => {
+        this.clearRectangleData();
+        switch (data) {
+          case 'switchMap':
+            this.callOperatorMap(() => switchMap(x => this.stream(this.counter)));
+            break;
+          case 'mergeMap':
+            this.callOperatorMap(() => mergeMap(x => this.stream(this.counter)));
+            break;
+          case 'concatMap':
+            this.callOperatorMap(() => concatMap(x => this.stream(this.counter)));
+            break;
+          case 'exhaustMap':
+            this.callOperatorMap(() => exhaustMap(x => this.stream(this.counter)));
+            break;
         }
-      )
+      }
+    );
   }
 
-  private mergeMap(): void {
+  private callOperatorMap(operatorFun: () => OperatorFunction<unknown, [number, Rectangle]>): void {
     this.streamSubscription = this.buttonStream.pipe(
       tap(x => this.counter += 1),
-      mergeMap(x => this.stream(this.counter))
+      operatorFun()
     ).subscribe(
       (streamData: [number, Rectangle]) => {
         this.handleDataStream(streamData);
       },
     );
   }
-
-  private switchMap(): void {
-    this.streamSubscription = this.buttonStream.pipe(
-      tap(x => this.counter += 1),
-      switchMap(x => this.stream(this.counter))
-    ).subscribe(
-      (streamData: [number, Rectangle]) => {
-        this.handleDataStream(streamData);
-      },
-    );
-  }
-
-  private concatMap(): void {
-    this.streamSubscription = this.buttonStream.pipe(
-      tap(x => this.counter += 1),
-      concatMap(x => this.stream(this.counter))
-    ).subscribe(
-      (streamData: [number, Rectangle]) => {
-        this.handleDataStream(streamData);
-      },
-    );
-  }
-  
-  private exhaustMap(): void {
-    this.streamSubscription = this.buttonStream.pipe(
-      tap(x => this.counter += 1),
-      exhaustMap(x => this.stream(this.counter))
-    ).subscribe(
-      (streamData: [number, Rectangle]) => {
-        this.handleDataStream(streamData);
-      },
-    );
-  }
-
 
   private handleDataStream(data: [number, Rectangle]): void {
     const indexNumKey = data[0];

@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class RxjsModule { }
