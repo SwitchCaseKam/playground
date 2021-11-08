@@ -1,0 +1,23 @@
+<h3>mergeMap vs switchMap vs concatMap vs exhaustMap</h3>
+
+<form [formGroup]="operatorFunctionsChoice">
+    <h4>Choose rxjs operator:</h4>
+    <mat-radio-group required aria-label="Select an option" formControlName="mode">
+        <div *ngFor="let operatorFun of operatorFunctions">
+            <mat-radio-button value="{{operatorFun}}">{{operatorFun}}</mat-radio-button>
+            <br>
+        </div>
+    </mat-radio-group>
+    <br>
+</form> 
+
+<button mat-button id="streamOnButton" primary>Stream ON</button>
+
+<br><br>
+<ng-container *ngFor="let j of maxColumns">
+    <div *ngFor='let rectangle of rectangles.get(j)'>
+        <div class="rectangle" [ngStyle]="{'background-color': rectangle.color}">{{rectangle.value}}</div>
+    </div><br><br><br>
+</ng-container>
+
+
