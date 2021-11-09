@@ -2,11 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { fromEvent, Observable, of, OperatorFunction, Subscriber, Subscription } from 'rxjs';
 import { concatMap, exhaustMap, mergeMap, switchMap, tap } from 'rxjs/operators';
-
-interface Rectangle {
-  value: number;
-  color: string;
-}
+import { Rectangle } from '../common/models';
 
 @Component({
   selector: 'app-switch-map-merge-map-concat-map-exhaust-map',
@@ -32,7 +28,7 @@ export class SwitchMapMergeMapConcatMapExhaustMapComponent implements OnInit, On
       observer.next([index-1, {value: i, color}])
       i += 1;
       if (i === 12) { observer.complete(); }
-    }, 300)
+    }, 300);
   });
   
   constructor(private formBuilder: FormBuilder) { }

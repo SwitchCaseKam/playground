@@ -2,8 +2,8 @@
 <mat-selection-list [multiple]="false">
     <b>Topics</b>
     <br>
-    <mat-list-option *ngFor="let i of topics" routerLink="{{i[1]}}">
-        <b>{{i[0]}}</b>
+    <mat-list-option *ngFor="let topic of topics; let i=index" routerLink="{{topic[1]}}">
+        #{{i}}  {{topic[0]}}
     </mat-list-option>
 </mat-selection-list>
 

@@ -10,11 +10,15 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CombinationOperatorsComponent } from './combination-operators/combination-operators.component';
+
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     RxjsComponent,
-    SwitchMapMergeMapConcatMapExhaustMapComponent
+    SwitchMapMergeMapConcatMapExhaustMapComponent,
+    CombinationOperatorsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRadioModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule
   ]
 })
 export class RxjsModule { }

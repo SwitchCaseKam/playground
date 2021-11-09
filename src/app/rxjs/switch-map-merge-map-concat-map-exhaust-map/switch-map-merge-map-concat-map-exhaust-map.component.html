@@ -11,7 +11,7 @@
     <br>
 </form> 
 
-<button [disabled]="counter > 10" mat-button id="streamOnButton" primary matTooltip="Stream emits 12 values from 0 to 11.Max 10 streams can be called."><b>Stream ON</b></button>
+<button [disabled]="counter >= 10" mat-button id="streamOnButton" primary matTooltip="Stream emits 12 values from 0 to 11.Max 10 streams can be called."><b>Stream ON</b></button>
 
 <br><br>
 <ng-container *ngFor="let j of maxColumns">

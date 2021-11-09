@@ -1,0 +1,29 @@
+<h3>combination operators</h3>
+
+<form [formGroup]="combinationOperatorsFormGroup">
+    <h4>Choose rxjs combination operator:</h4>
+    <mat-radio-group required aria-label="Select an option" formControlName="operators">
+        <div *ngFor="let operator of getCombinationOperatorsMapKeys()">
+            <mat-radio-button value="{{operator}}">{{operator}}</mat-radio-button>
+            <br>
+        </div>
+    </mat-radio-group>
+    <br>
+</form> 
+
+<form [formGroup]="streamSelectionFormGroup">
+    <h4>Choose streams to activate:</h4>
+    <ng-container *ngFor="let stream of getStreamMapKeys(); let i = index" formArrayName="streams">
+        <mat-checkbox [formControlName]="i">{{stream}}</mat-checkbox><br>
+    </ng-container>
+</form>
+<br>
+<button [disabled]="disabledStartStreamButton()" mat-button id="streamsOnButton" primary (click)="startStreams()" matTooltip="Each stream emits 9 values every 1s.">
+    <b>Streams ON</b>
+</button>
+<br><br>
+<div>
+    <div *ngFor="let rectangle of rectangles">
+        <div class="rectangle" [ngStyle]="{'background-color': rectangle.color}">{{rectangle.value}}</div>
+    </div>
+</div>
