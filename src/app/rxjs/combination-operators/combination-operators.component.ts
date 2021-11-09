@@ -17,9 +17,9 @@ export class CombinationOperatorsComponent implements OnInit, OnDestroy {
   public rectangles: Rectangle[] = [];
 
   public streamsMap: Map<string, Observable<Rectangle>> = new Map([
-    ['stream 1: (1,2,...,9) RED', interval(1000).pipe(take(9), map(i => { return {value: i+1, color: 'red'}}))],
-    ['stream 2: (10,20,...,90) GREEN', interval(1000).pipe(take(9), map(i => { return {value: (i+1)*10, color: 'green'}}))],
-    ['stream 3: (100,200,...,900) BLUE', interval(1000).pipe(take(9), map(i => { return {value: (i+1)*100, color: 'blue'}}))],
+    ['RED: (1,2,...,9)', interval(1000).pipe(take(9), map(i => { return {value: i+1, color: 'red'}}))],
+    ['GREEN: (10,20,...,90)', interval(1000).pipe(take(9), map(i => { return {value: (i+1)*10, color: 'green'}}))],
+    ['BLUE: (100,200,...,900)', interval(1000).pipe(take(9), map(i => { return {value: (i+1)*100, color: 'blue'}}))],
   ]);
 
   private chosenActiveStreams: Observable<Rectangle>[] = [];
