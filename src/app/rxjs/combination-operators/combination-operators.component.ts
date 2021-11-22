@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { concat, interval, merge, Observable, of, Subscription } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { concat, forkJoin, interval, merge, Observable, of, Subscription } from 'rxjs';
+import { delay, map, take } from 'rxjs/operators';
 import { Rectangle } from '../common/models';
 
 @Component({
@@ -41,6 +41,8 @@ export class CombinationOperatorsComponent implements OnInit, OnDestroy {
     this.combinationOperatorsFormGroup = this.createCombinationOperatorsFormGroup();
     this.subscribeToCheckboxChanges();
     this.subscribeToCombinationOperatorsChanges();
+    
+    this.forkJoin();
   }
 
   public ngOnDestroy(): void {
@@ -112,4 +114,20 @@ export class CombinationOperatorsComponent implements OnInit, OnDestroy {
     // this.chosenOperator = '';
   }
 
+  private forkJoin(): void {
+    console.log('fork join')
+    const s1 = interval(1000).pipe(map(i => {return {value: i, name: 's1'}}));
+    const s2 = interval(500).pipe(map(i => {return {value: i, name: 's2'}}));
+    const s3 = interval(3200).pipe(map(i => {return {value: i, name: 's3'}}));
+
+    forkJoin(
+      {
+        s1: s1.pipe(take(3)),
+        s3: s3.pipe(take(1))
+
+      }  
+    ).subscribe(
+      data => console.log(data)
+    )
+  }
 }

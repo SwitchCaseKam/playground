@@ -1,0 +1,15 @@
+<h3>Parrent component</h3>
+<h6>look into console</h6>
+
+
+Random number: <h3>{{randomNum}}</h3><br>
+Pass value to child compontent<br>
+<form [formGroup]="inputForm">
+    <mat-form-field>
+        <input required formControlName="text" matInput>
+    </mat-form-field>
+</form>
+
+{{ logChangeDetection() }}
+<img src="https://img.icons8.com/ios-glyphs/30/000000/long-arrow-down.png"/>
+<app-child value="{{currentValue}}"></app-child>

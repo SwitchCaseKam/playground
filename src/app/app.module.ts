@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatButtonModule} from '@angular/material/button';
-import { RxjsModule } from './rxjs/rxjs.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { RxjsModule } from './rxjs/rxjs.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
