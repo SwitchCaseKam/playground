@@ -10,24 +10,28 @@
     </mat-option>
 </mat-select>
 
-<button mat-button color="primary" (click)="updateDOM()"><b>Update style</b></button>
-<button mat-button color="primary" (click)="removeClass()"><b>Remove class</b></button>
-<button mat-button color="primary" (click)="addClass()"><b>Add class</b></button>
+<button mat-button #updateStyle color="primary"><b>Update style</b></button>
+<button mat-button #removeClass color="primary"><b>Remove class</b></button>
+<button mat-button #addClass color="primary"><b>Add class</b></button>
+<button mat-button #createElement color="primary"><b>Create new element</b></button>
+<button mat-button #removeElement color="primary"><b>Remove an child element</b></button>
 
 <br><br><br>
-<b>sq1</b>
-<div #sq1 class="form">
-    sq1
-</div>
-<br>
-
-<b>rect1</b>
-<div #rect1 class="form">
-    rect1
-</div>
-<br>
-
-<b>circ1</b>
-<div #circ1 class="circle">
-    circ1
+<div #area>
+    <b>sq1</b>
+    <div #sq1 class="form">
+        sq1
+    </div>
+    <br>
+    
+    <b>rect1</b>
+    <div #rect1 class="form">
+        rect1
+    </div>
+    <br>
+    
+    <b>circ1</b>
+    <div #circ1 class="circle">
+        circ1
+    </div>
 </div>
