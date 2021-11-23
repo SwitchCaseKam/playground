@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   { path: 'rxjs', loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule) },
   { path: 'change-detection', loadChildren: () => import('./change-detection/change-detection.module').then(m => m.ChangeDetectionModule) },
+  { path: 'dom', loadChildren: () => import('./dom/dom.module').then(m => m.DomModule) },
   { path: '*', component: AppComponent},
 ];
 

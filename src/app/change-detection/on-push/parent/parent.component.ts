@@ -13,7 +13,15 @@ export class ParentComponent implements OnInit {
   public currentValue: string = '';
   public randomNum: number = 0;
 
-  constructor(private formBuilder: FormBuilder, private cdRef: ChangeDetectorRef) { }
+  constructor(private formBuilder: FormBuilder, private cdRef: ChangeDetectorRef) { 
+    if (this.randomNum > 5 ) {
+      console.log(`${this.randomNum} lower than 5. Tree detached.`)
+      this.cdRef.detach();
+    } else {
+      console.log(`${this.randomNum} higher than 5. Tree reattached.`)
+      this.cdRef.reattach();
+    }
+  }
 
   public ngOnInit(): void {
     this.generateRandomNumber();

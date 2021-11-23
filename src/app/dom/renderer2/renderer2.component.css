@@ -1,0 +1,23 @@
+.form {
+    border: 1px solid black;
+    width: 8rem;
+    height: 8rem;
+    background-color: white;
+}
+
+.circle {
+    border-radius: 50%;
+    border: 1px black solid;
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+}
+
+.select-field {
+    border: 1px solid black;
+    width: 5rem;
+}
+
+.new-form-class {
+    width: 18rem;
+}

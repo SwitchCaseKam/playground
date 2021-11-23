@@ -1,0 +1,28 @@
+<h3>ElementRef</h3>
+<span>nativeElement property contains the reference to the underlying DOM object<br>this gives direct access to the DOM</span>
+<h3>Select form ID to update with random style:</h3>
+<mat-select class='select-field' [(ngModel)]="selectedFormId">
+    <mat-option *ngFor="let id of formsIds; let i=index" [value]="i">
+        {{id}}
+    </mat-option>
+</mat-select>
+
+<button mat-button color="primary" (click)="updateDOM()"><b>Update style</b></button>
+
+<br><br><br>
+<b>sq1</b>
+<div #sq1 class="form">
+    sq1
+</div>
+<br>
+
+<b>rect1</b>
+<div #rect1 class="form">
+    rect1
+</div>
+<br>
+
+<b>circ1</b>
+<div #circ1 class="circle">
+    circ1
+</div>
