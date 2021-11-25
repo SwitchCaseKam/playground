@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'rxjs', loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule) },
   { path: 'change-detection', loadChildren: () => import('./change-detection/change-detection.module').then(m => m.ChangeDetectionModule) },
   { path: 'dom', loadChildren: () => import('./dom/dom.module').then(m => m.DomModule) },
+  { path: 'forms', loadChildren: () => import('./forms-example/forms-example.module').then(m => m.FormsExampleModule) },
   { path: '*', component: AppComponent},
 ];
 

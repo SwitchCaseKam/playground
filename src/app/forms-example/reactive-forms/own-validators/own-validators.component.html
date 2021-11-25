@@ -1,0 +1,40 @@
+<h3>Validators</h3>
+
+<form class="form-sheet" [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="string" matInput formControlName="name">
+        <mat-error *ngIf="form.get('name')?.hasError('minlength')">Name too short</mat-error>
+        <mat-error *ngIf="form.get('name')?.hasError('invalidContent')">Name must include 'kam'</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input type="text" matInput formControlName="surname">
+        <mat-error *ngIf="form.get('surname')?.hasError('minlength')">Surname too short</mat-error>
+        <mat-error *ngIf="form.get('surname')?.hasError('invalidContent')">Surname does not include 'cki'</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email address</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input type="number" matInput formControlName="phone">
+        <mat-error *ngIf="form.get('phone')?.hasError('minlength')">Phone must have at least 9 numbers</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Appointment date</mat-label>
+        <input matInput formControlName="visitDate">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Comments</mat-label>
+        <textarea matInput formControlName="comments"></textarea>
+        <mat-error *ngIf="form.get('comments')?.hasError('invalidContent')">For this name, comment required and must include 'super'</mat-error>
+    </mat-form-field>
+</form>

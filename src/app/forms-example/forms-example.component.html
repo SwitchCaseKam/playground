@@ -1,0 +1,16 @@
+<br><br>
+<mat-selection-list [multiple]="false">
+    <b>Reactive Forms:</b>
+    <br>
+    <mat-list-option class="menu-list" *ngFor="let reactiveFormsTopic of reactiveFormsTopics; let i=index" routerLink="{{reactiveFormsTopic[1]}}">
+        #{{i}}  {{reactiveFormsTopic[0]}}
+    </mat-list-option>
+    <br>
+    <b>Template Driven Forms:</b>
+    <br>
+    <mat-list-option class="menu-list" *ngFor="let templateDrivenFormsTopic of templateDrivenFormsTopics; let i=index" routerLink="{{templateDrivenFormsTopic[1]}}">
+        #{{i}}  {{templateDrivenFormsTopic[0]}}
+    </mat-list-option>
+</mat-selection-list>
+
+<router-outlet></router-outlet>
