@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { debounceTime, map } from 'rxjs/operators';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-own-validators',
@@ -10,7 +12,7 @@ export class OwnValidatorsComponent implements OnInit {
 
   public form: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataService) { }
 
   public ngOnInit(): void {
     this.form = this.createForm();
@@ -32,7 +34,9 @@ export class OwnValidatorsComponent implements OnInit {
         validators: [Validators.email, Validators.required]
       }],
       visitDate: [''],
-      comments: ['']
+      comments: ['', {
+        asyncValidators: [this.checkInputWithDB()]
+      }]
     })
   }
 
@@ -45,6 +49,24 @@ export class OwnValidatorsComponent implements OnInit {
         control.setErrors({invalidContent: true});
         return {invalidContent: true};
       }
+    }
+  }
+
+  // async validator
+  private checkInputWithDB(): AsyncValidatorFn {
+    return (control: AbstractControl) => {
+      return this.dataService.getData().pipe(
+        debounceTime(1000),
+        map(data => {
+          console.log('data: ', data);
+          if (data?.fact.toLowerCase().includes(control.value?.toLowerCase())) {
+            return null;
+          } else {
+            control.setErrors({dbCheckerFailure: true});
+            return {dbCheckerFailure: true};
+          }
+        })
+      );
     }
   }
 

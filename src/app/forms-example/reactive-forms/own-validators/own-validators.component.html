@@ -36,5 +36,6 @@
         <mat-label>Comments</mat-label>
         <textarea matInput formControlName="comments"></textarea>
         <mat-error *ngIf="form.get('comments')?.hasError('invalidContent')">For this name, comment required and must include 'super'</mat-error>
+        <mat-error *ngIf="form.get('comments')?.hasError('dbCheckerFailure')">Failure from remote DB validation</mat-error>
     </mat-form-field>
 </form>
