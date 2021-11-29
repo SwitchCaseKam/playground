@@ -1,0 +1,32 @@
+<h3>Template driven forms example</h3>
+<form #form="ngForm" (ngSubmit)="submitData(form.value)">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="string" matInput name="name" ngModel minlength="3">
+
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input type="text" matInput name="surname" ngModel minlength="3">
+
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input type="number" matInput name="phone" ngModel minlength="9" maxlength="9">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput name="email" ngModel>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Comments</mat-label>
+        <textarea matInput name="comments" ngModel></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-button #removeElement color="primary" type="submit"><b>Submit</b></button>
+
+</form>
