@@ -1,0 +1,10 @@
+<p>Cars factory</p>
+<button (click)="createSportsCar()">Create Sport Car in Sports Car Factory</button>
+<button (click)="createCompactCar()">Create Compact Car in Compact Car Factory</button>
+
+
+<p>Cars: </p>
+<div *ngFor="let car of cars; let i=index">
+    <b>{{i}}.</b> 
+    {{car.displayInfo()}}
+</div>

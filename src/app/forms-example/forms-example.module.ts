@@ -8,12 +8,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { OwnValidatorsComponent } from './reactive-forms/own-validators/own-validators.component';
+import { ValidatorsComponent } from './template-driven-forms/validators/validators.component';
 
 
 @NgModule({
   declarations: [
     FormsExampleComponent,
-    OwnValidatorsComponent
+    OwnValidatorsComponent,
+    ValidatorsComponent
   ],
   imports: [
     CommonModule,

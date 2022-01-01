@@ -11,7 +11,7 @@ export class FormsExampleComponent implements OnInit {
     ['validators', 'reactive/validators'],
   ];
   public templateDrivenFormsTopics: string[][] = [
-    ['-', ''],
+    ['template driven form example', 'template-driven/example'],
   ];
 
   constructor() { }
