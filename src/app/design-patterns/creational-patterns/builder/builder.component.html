@@ -1,1 +1,29 @@
-<p>builder works!</p>
+<p>Restaurant</p>
+<br>
+We have an order ...<br>
+<img src="assets/director.png"><br>
+<button (click)='callPizzaMaster()'>Call chef</button><br><br>
+<ng-container *ngIf="pizzaMasterVisible">
+    <p>Hey chef, let's make a pizza</p>
+</ng-container>
+<br>
+<img *ngIf="pizzaMasterVisible" src="assets/chef.png">
+
+<ng-container *ngIf="pizzaSelection">
+    <br>Ok, but what pizza? <br>
+    <select [(ngModel)]="selectedPizzaName">
+        <option value="margherita">Margherita</option>
+        <option value="funghi">Funghi</option>
+        <option value="meat">Meat</option>
+    </select><br>
+    <ng-container *ngIf="selectedPizzaName!==''">
+        <button (click)="choosePizzaToMake()">Chef, build <b>{{selectedPizzaName}}</b> pizza</button><br>
+    </ng-container>
+</ng-container>
+
+
+<h2 *ngIf="selectedPizzaName!==''">{{selectedPizzaName}}</h2>
+<ng-container *ngFor="let ingredient of ingredients">
+    <img src="assets/builder-pizza/{{ingredient}}.png"><br>{{ingredient}}<br>
+</ng-container>
+
