@@ -1,3 +1,15 @@
+# Playground
+
+---
+
+A place to play where I can learn something new, test interesting topics, prototyping and constatnly develop my programming skills :)
+
+---
+# Deployment
+Application avaialble at https://switchcasekam.github.io/playground/
+
+----
+
 # Playgroud
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
