@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { FactoryMethodComponent } from './creational-patterns/factory-method/factory-method.component';
 import { AbstractFactoryComponent } from './creational-patterns/abstract-factory/abstract-factory.component';
 import { BuilderComponent } from './creational-patterns/builder/builder.component';
+import { FacadeComponent } from './structural-patterns/facade/facade.component';
+import { DecoratorComponent } from './structural-patterns/decorator/decorator.component';
 
 
 
@@ -15,7 +17,9 @@ import { BuilderComponent } from './creational-patterns/builder/builder.componen
     DesignPatternsComponent,
     FactoryMethodComponent,
     AbstractFactoryComponent,
-    BuilderComponent
+    BuilderComponent,
+    FacadeComponent,
+    DecoratorComponent
   ],
   imports: [
     DesignPatternsRoutingModule,
