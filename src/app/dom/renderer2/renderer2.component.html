@@ -16,22 +16,33 @@
 <button mat-button #createElement color="primary"><b>Create new element</b></button>
 <button mat-button #removeElement color="primary"><b>Remove an child element</b></button>
 
+<button mat-button id="testAddElementButton" color="secondary"><b>Add Element</b></button>
+
 <br><br><br>
-<div #area>
-    <b>sq1</b>
-    <div #sq1 class="form">
-        sq1
+<div id="area">
+    <div>
+        <b>sq1</b>
+        <div #sq1 class="form">
+            sq1
+        </div>
+        <br>
     </div>
-    <br>
     
-    <b>rect1</b>
-    <div #rect1 class="form">
-        rect1
+    <div>
+        <b>rect1</b>
+        <div #rect1 class="form">
+            rect1
+        </div>
     </div>
-    <br>
-    
-    <b>circ1</b>
-    <div #circ1 class="circle">
-        circ1
+
+    <div>
+        <b>circ1</b>
+        <div #circ1 class="circle">
+            circ1
+        </div>
     </div>
+</div>
+
+<div id="test-element">
+
 </div>

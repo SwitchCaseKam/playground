@@ -1,3 +1,8 @@
+#area {
+    display: flex;
+    justify-content: space-around;
+}
+
 .form {
     border: 1px solid black;
     width: 8rem;

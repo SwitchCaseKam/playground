@@ -1,10 +1,14 @@
 <br><br>
 <mat-selection-list [multiple]="false">
-    <b>Topics</b>
+    <div class="binding-class">
+        <b>Topics</b>
+    </div>
     <br>
     <mat-list-option class="menu-list" *ngFor="let topic of topics; let i=index" routerLink="{{topic[1]}}">
         #{{i}}  {{topic[0]}}
     </mat-list-option>
 </mat-selection-list>
+
+<app-binding [num]="num" [p1]="p2"></app-binding>
 
 <router-outlet></router-outlet>

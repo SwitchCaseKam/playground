@@ -1,0 +1,31 @@
+<div class="person-form" [formGroup]="form">
+    <h3>Personal info</h3>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="string" matInput formControlName="name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input type="string" matInput formControlName="surname">
+    </mat-form-field>
+
+
+    <div formGroupName="address">
+        <h3>Address</h3>
+        <mat-form-field>
+            <mat-label>City</mat-label>
+            <input type="string" matInput formControlName="city">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>House number</mat-label>
+            <input type="string" matInput formControlName="houseNumber">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Postal code</mat-label>
+            <input type="string" matInput formControlName="postalCode">
+        </mat-form-field>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+
+interface FormStrategies {
+    createForm(): void;
+}

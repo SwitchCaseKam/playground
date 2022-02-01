@@ -9,7 +9,8 @@ export class RxjsComponent implements OnInit {
 
   public topics: string[][] = [
     ['switchMap vs mergeMap vs concatMap vs exhaustMap', 'switchMap-mergeMap-concatMap-exhaustMap'],
-    ['combination operators', 'combination-operators']
+    ['combination operators', 'combination-operators'],
+    ['multicasting', 'multicasting']
   ];
 
   constructor() { }

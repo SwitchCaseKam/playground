@@ -32,6 +32,7 @@ export class Renderer2Component implements OnInit, AfterViewInit {
     this.renderer2.listen(this.updateStyleButton.nativeElement, 'click', () => this.updateDOM());
     this.renderer2.listen(this.createElementButton.nativeElement, 'click', () => this.createNewElement());
     this.renderer2.listen(this.removeElementButton.nativeElement, 'click', () => this.removeElement());
+    this.renderer2.listen(document.getElementById('testAddElementButton'), 'click', () => this.handleTestElement());
   }
 
   private updateDOM(): void {
@@ -82,5 +83,18 @@ export class Renderer2Component implements OnInit, AfterViewInit {
   private removeElement(): void {
     const form = this.childsComponents[this.selectedFormId];
     this.renderer2.removeChild(form.nativeElement,document.querySelector('.new-element-class'));
+  }
+
+  private handleTestElement(): void {
+    const testElement = document.getElementById('test-element');
+    const newElement = this.renderer2.createElement('div');
+    this.renderer2.setProperty(newElement, 'width', 500);
+    this.renderer2.setProperty(newElement, 'height', 281);
+    this.renderer2.setStyle(newElement, 'background-color', 'blue');
+    this.renderer2.setProperty(newElement, 'innerHTML', 'xyz');
+    this.renderer2.setStyle(testElement, 'background-color', 'grey');
+    this.renderer2.setStyle(testElement, 'border', '2px brown dotted');
+    this.renderer2.setStyle(testElement, 'margin', '5px');
+    this.renderer2.appendChild(testElement, newElement);
   }
 }

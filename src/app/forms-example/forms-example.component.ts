@@ -13,6 +13,9 @@ export class FormsExampleComponent implements OnInit {
   public templateDrivenFormsTopics: string[][] = [
     ['template driven form example', 'template-driven/example'],
   ];
+  public formStrategiesTopics: string[][] = [
+    ['forms strategies', 'forms-strategies'],
+  ];
 
   constructor() { }
 

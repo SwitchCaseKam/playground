@@ -13,12 +13,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CombinationOperatorsComponent } from './combination-operators/combination-operators.component';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MulticastComponent } from './multicast/multicast.component';
 
 @NgModule({
   declarations: [
     RxjsComponent,
     SwitchMapMergeMapConcatMapExhaustMapComponent,
-    CombinationOperatorsComponent
+    CombinationOperatorsComponent,
+    MulticastComponent
   ],
   imports: [
     CommonModule,

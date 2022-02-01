@@ -1,0 +1,14 @@
+<div>
+    <b>Select type of form:</b>
+    <br>
+    <mat-select id="select-field" [(ngModel)]="selectedFormType" (ngModelChange)="renderForm()" >
+        <mat-option *ngFor="let formName of formsStrategiesNames | keyvalue" [value]="formName.key">
+            {{formName.key}}
+        </mat-option>
+    </mat-select>
+    {{selectedFormType}}
+</div>
+<template #dynamicComponentContainer></template>
+<div>
+    PPPPPPPP
+</div>

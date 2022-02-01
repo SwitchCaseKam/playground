@@ -10,12 +10,21 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BindingComponent } from './binding/binding.component';
+import { CustomElementsComponent } from './custom-elements/custom-elements.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
+import { ChildDynamicComponentComponent } from './dynamic-component/child-dynamic-component/child-dynamic-component.component';
 
 @NgModule({
   declarations: [
     DomComponent,
     Renderer2Component,
-    ElementRefComponent
+    ElementRefComponent,
+    BindingComponent,
+    CustomElementsComponent,
+    DynamicComponentComponent,
+    ChildDynamicComponentComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +34,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatListModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
-  ]
+    MatSelectModule,
+    MatDialogModule
+  ],
+  entryComponents: [ChildDynamicComponentComponent],
 })
 export class DomModule { }

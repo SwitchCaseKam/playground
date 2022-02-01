@@ -11,6 +11,12 @@
     <mat-list-option class="menu-list" *ngFor="let templateDrivenFormsTopic of templateDrivenFormsTopics; let i=index" routerLink="{{templateDrivenFormsTopic[1]}}">
         #{{i}}  {{templateDrivenFormsTopic[0]}}
     </mat-list-option>
+    <br>
+    <b>Forms Strategies </b>
+    <mat-list-option class="menu-list" *ngFor="let formStrategies of formStrategiesTopics; let i=index" routerLink="{{formStrategies[1]}}">
+        #{{i}}  {{formStrategies[0]}}
+    </mat-list-option>
+    <br>
 </mat-selection-list>
 
 <router-outlet></router-outlet>

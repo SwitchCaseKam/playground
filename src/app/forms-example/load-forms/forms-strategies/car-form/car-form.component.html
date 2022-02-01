@@ -1,0 +1,27 @@
+<div class="car-form" [formGroup]="carForm">
+    <h3>Car info</h3>
+    <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input type="string" matInput formControlName="model">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Production year</mat-label>
+        <input type="number" matInput formControlName="productionYear">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input type="string" matInput formControlName="color">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Engine</mat-label>
+        <input type="string" matInput formControlName="engine">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input type="number" matInput formControlName="price">
+    </mat-form-field>
+</div>
