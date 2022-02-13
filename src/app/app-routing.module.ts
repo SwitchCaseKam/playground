@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'forms', loadChildren: () => import('./forms-example/forms-example.module').then(m => m.FormsExampleModule) },
   { path: 'design-patterns', loadChildren: () => import('./design-patterns/design-patterns.module').then(m => m.DesignPatternsModule) },
   { path: 'typescript-learn', loadChildren: () => import('./typescript-learn/typescript-learn.module').then(m => m.TypescriptLearnModule) },
+  { path: 'css', loadChildren: () => import('./css/css.module').then(m => m.CssModule) },
   { path: '*', component: AppComponent},
 ];
 

@@ -1,4 +1,7 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, HostListener, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { filter, switchMap } from 'rxjs/operators';
+import { DataService } from '../reactive-forms/data.service';
 import { FormsStrategies } from './forms-helper.model';
 import { CarFormComponent } from './forms-strategies/car-form/car-form.component';
 import { HouseFormComponent } from './forms-strategies/house-form/house-form.component';
@@ -18,14 +21,48 @@ export class LoadFormsComponent implements OnInit {
     ['person', FormsStrategies.PERSON_FORM_STRATEGY],
   ]);
   public selectedFormType: string = '';
+
+  @HostListener('window:scroll')
+  onClick() {
+    console.log('ok button clicked host listener');
+    const randomColor = Math.floor(Math.random()* (16777214 - 1 + 1) + 1).toString();
+    const randomColorHex = parseInt(randomColor, 16);
+    console.log(randomColorHex)
+  }
+
   
+  @HostListener('window:scroll')
+  onScroll() {
+    console.log('scroll host listener');
+    // this.displayForm();
+  }
+
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private viewContainerRef: ViewContainerRef,
+    private activatedRoute: ActivatedRoute,
+    private dataService: DataService  
   ) { }
 
   public ngOnInit(): void {
+    this.activatedRoute.queryParamMap.pipe(
+      filter(data => data.get('message') === 'hello'),
+      switchMap((data) => this.dataService.getData())
+    ).subscribe(data => {
+      console.log(data);
+
+    });
+    
+    
+
+
+    document.getElementById('ok-button')?.addEventListener('click', () => {
+      console.log('ok button clicked add vent listener')
+    });
+
     this.displayForm();
+
+
   }
 
   public renderForm(): void {

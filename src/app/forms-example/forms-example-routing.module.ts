@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'reactive', redirectTo: ''},
   { path: 'reactive/validators', component: OwnValidatorsComponent},
   { path: 'template-driven/example', component: ValidatorsComponent},
-  { path: 'forms-strategies', component: LoadFormsComponent}
+  { path: 'forms-strategies', component: LoadFormsComponent},
+  { path: 'abc', component: LoadFormsComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-renderer2',
@@ -19,10 +19,26 @@ export class Renderer2Component implements OnInit, AfterViewInit {
   @ViewChild('removeElement') removeElementButton: ElementRef = new ElementRef({});
   private childsComponents: ElementRef[] = [];
   
+  @HostListener('window:scroll')
+  onClick() {
+    const randomColor = Math.floor(Math.random()* (1677721 - 1 + 1) + 1).toString();
+    const randomColorHex = parseInt(randomColor, 16);
+    console.log(randomColorHex)
+    const mainContainer = document.getElementById('main-container');
+    this.renderer2.setStyle(mainContainer, 'background-color', `#${randomColorHex}`);
+    this.renderer2.setStyle(mainContainer, 'border', `1px solid black`);
+  }
+
   constructor(private renderer2: Renderer2) { }
 
   public ngOnInit(): void {
-
+    setInterval(() => {
+      const randomColor = Math.floor(Math.random()* (16777214 - 1 + 1) + 1).toString();
+      const randomColorHex = parseInt(randomColor, 16);
+      console.log(randomColorHex)
+      const mainContainer = document.getElementById('main-container');
+      this.renderer2.setStyle(mainContainer, 'background-color', `#${randomColorHex}`);
+    }, 1000);
   }
 
   public ngAfterViewInit(): void {

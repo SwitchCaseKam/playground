@@ -1,48 +1,50 @@
-<h3>render2</h3>
-<span>
-    allows to manipulate the DOM elements without accessing the DOM directly.<br>
-    it provides a layer of abstraction between the DOM element and the component code
-</span>
-<h3>Select form ID to update with random style:</h3>
-<mat-select class='select-field' [(ngModel)]="selectedFormId">
-    <mat-option *ngFor="let id of formsIds; let i=index" [value]="i">
-        {{id}}
-    </mat-option>
-</mat-select>
-
-<button mat-button #updateStyle color="primary"><b>Update style</b></button>
-<button mat-button #removeClass color="primary"><b>Remove class</b></button>
-<button mat-button #addClass color="primary"><b>Add class</b></button>
-<button mat-button #createElement color="primary"><b>Create new element</b></button>
-<button mat-button #removeElement color="primary"><b>Remove an child element</b></button>
-
-<button mat-button id="testAddElementButton" color="secondary"><b>Add Element</b></button>
-
-<br><br><br>
-<div id="area">
-    <div>
-        <b>sq1</b>
-        <div #sq1 class="form">
-            sq1
+<div id="main-container">
+    <h3>render2</h3>
+    <span>
+        allows to manipulate the DOM elements without accessing the DOM directly.<br>
+        it provides a layer of abstraction between the DOM element and the component code
+    </span>
+    <h3>Select form ID to update with random style:</h3>
+    <mat-select class='select-field' [(ngModel)]="selectedFormId">
+        <mat-option *ngFor="let id of formsIds; let i=index" [value]="i">
+            {{id}}
+        </mat-option>
+    </mat-select>
+    
+    <button mat-button #updateStyle color="primary"><b>Update style</b></button>
+    <button mat-button #removeClass color="primary"><b>Remove class</b></button>
+    <button mat-button #addClass color="primary"><b>Add class</b></button>
+    <button mat-button #createElement color="primary"><b>Create new element</b></button>
+    <button mat-button #removeElement color="primary"><b>Remove an child element</b></button>
+    
+    <button mat-button id="testAddElementButton" color="secondary"><b>Add Element</b></button>
+    
+    <br><br><br>
+    <div id="area">
+        <div>
+            <b>sq1</b>
+            <div #sq1 class="form">
+                sq1
+            </div>
+            <br>
         </div>
-        <br>
+        
+        <div>
+            <b>rect1</b>
+            <div #rect1 class="form">
+                rect1
+            </div>
+        </div>
+    
+        <div>
+            <b>circ1</b>
+            <div #circ1 class="circle">
+                circ1
+            </div>
+        </div>
     </div>
     
-    <div>
-        <b>rect1</b>
-        <div #rect1 class="form">
-            rect1
-        </div>
+    <div id="test-element">
+    
     </div>
-
-    <div>
-        <b>circ1</b>
-        <div #circ1 class="circle">
-            circ1
-        </div>
-    </div>
-</div>
-
-<div id="test-element">
-
 </div>

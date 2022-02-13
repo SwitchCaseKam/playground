@@ -8,6 +8,7 @@
     <mat-form-field>
         <mat-label>Surname</mat-label>
         <input type="string" matInput formControlName="surname">
+        <mat-error *ngIf="form.get('surname')?.hasError('invalidContent')">invalid content</mat-error>
     </mat-form-field>
 
 
