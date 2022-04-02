@@ -10,6 +10,10 @@ const routes: Routes = [
   { path: 'design-patterns', loadChildren: () => import('./design-patterns/design-patterns.module').then(m => m.DesignPatternsModule) },
   { path: 'typescript-learn', loadChildren: () => import('./typescript-learn/typescript-learn.module').then(m => m.TypescriptLearnModule) },
   { path: 'css', loadChildren: () => import('./css/css.module').then(m => m.CssModule) },
+  { path: 'directives', loadChildren: () => import('./directives/directives.module').then(m => m.DirectivesModule) },
+  { path: 'pipes', loadChildren: () => import('./pipes/pipes.module').then(m => m.PipesModule) },
+  { path: 'flexbox', loadChildren: () => import('./flexbox/flexbox.module').then(m => m.FlexboxModule) },
+  { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
   { path: '*', component: AppComponent},
 ];
 

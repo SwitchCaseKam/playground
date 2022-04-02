@@ -13,6 +13,11 @@ export class TypescriptLearnComponent implements OnInit {
     this.unknownAnyFunction();
     this.falsyValueFunction();
     this.genericFunction();
+    console.log('without spread result = ', this.checkSpreadOperator(1, 2, 3));
+    const numbers: [number, number, number]= [1, 2, 3];
+    console.log('with spread result = ', this.checkSpreadOperator(...numbers));
+    console.log('rest operator result = ', this.checkRestOperator(1,2,3));
+
   }
 
   private unknownAnyFunction(): void {
@@ -149,6 +154,18 @@ export class TypescriptLearnComponent implements OnInit {
     // fullCarReadOnly.color = 'purple';   returns error
 
     console.log('https://www.typescriptlang.org/docs/handbook/utility-types.html');
+  }
+
+  private checkSpreadOperator(a: number, b: number, c: number): number {
+    return a + b + c;
+  }
+
+  private checkRestOperator(...numbers: number[]): number {
+    let sum = 0;
+    for (let num of numbers) {
+      sum += num;
+    }
+    return sum;
   }
 
 
