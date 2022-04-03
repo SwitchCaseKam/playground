@@ -38,6 +38,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
+    /* align-items: center; */
 }
 
 .flex-item {
@@ -59,4 +60,45 @@
     background-color: red; 
     order: 5;
     flex-shrink: 3; 
+}
+
+
+.flex-main-container-for-play {
+    display: flex;
+    background-color: rgb(104, 104, 104);
+    border-radius: 5%;
+    height: 500px;
+    padding: 15px;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#flex-item-for-play-1 {
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    background-color: yellow;
+}
+
+#flex-item-for-play-2 {
+    margin: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: rgb(54, 52, 182);
+    /* flex-grow: 1;
+    flex-basis: 0; */
+}
+
+#flex-item-for-play-3 {
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    /* flex-grow: 1;    
+    flex-basis: 0; */
 }
