@@ -50,3 +50,33 @@
 .item-5 {
     background-color: blue;
 }
+
+
+
+/* another grid container */
+
+.grid-main-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 5px;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.grid-container-item {
+    min-height: 50px;
+    background-color: aqua;
+    color: white;
+    border: 1px solid black;
+}
+
+.grid-secondary-container {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 2px;
+}
+
+.grid-secondary-container-item {
+    background-color: rgb(136, 179, 37);
+}
+
