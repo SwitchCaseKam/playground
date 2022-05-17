@@ -1,0 +1,76 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Fira Code', sans-sherif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 30px 50px;
+}
+
+.title {
+  font-size: 25px;
+  padding-left: 50px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  width: 25%;
+  font-size: 16px;
+  padding-right: 50px;
+}
+
+
+.form-box {
+  border: 2px solid white;
+  width: 459px;
+  height: 493px;
+  padding: 20px 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-box-title {
+  text-align: center;
+  font-size: 21px;
+}
+
+.form-box-text {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.form-box-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: 16px;
+  padding: 10px; 
+}
+
+.form-box-checkbox-div {
+  font-size: 10px;
+}
+
+.create-account-button {
+  margin-top: 50px;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px
+}

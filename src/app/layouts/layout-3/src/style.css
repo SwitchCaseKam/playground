@@ -1,0 +1,61 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Fira Code", sans-sherif;
+  padding: 100px 50px;
+}
+
+.paragraph-item-title {
+  font-size: 32px;
+}
+
+.paragraph-item-text {
+  font-size: 20px;
+  text-align: justify;
+}
+
+.paragraph-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 50px;
+  counter-reset: section-number;
+}
+
+.paragraph-item {
+  display: flex;
+  padding: 20px;
+  position: relative;
+}
+
+.paragraph-item-content {
+  position: relative;
+  z-index: 99;
+}
+
+.paragraph-item:nth-child(odd) {
+  grid-column: 2;
+  
+}
+
+.paragraph-item:nth-child(odd)::before {
+  left: -25%;
+  
+}
+
+.paragraph-item:nth-child(even) {
+  grid-column: 1;
+}
+
+.paragraph-item:nth-child(even)::before{
+  right: -15%;
+}
+
+.paragraph-item::before {
+  counter-increment: section-number;
+  position: absolute;
+  font-size: 530px;
+  font-weight: bold;
+  content: counter(section-number);
+  color: grey;
+  top: -50%;
+}

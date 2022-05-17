@@ -1,0 +1,85 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Fira Code", sans-sherif;
+  padding: 40px;
+  padding-top: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.header-title {
+  margin-bottom: 3px;
+}
+
+.available-modes {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  font-size: 12px;
+}
+
+li {
+  border: 1px solid white;
+  padding: 5px 20px;
+}
+
+li:not(:last-child) {
+  border-right: none;
+}
+
+li:is(:first-child) {
+  background-color: white;
+  color: black;
+}
+
+.items-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 50px;
+  row-gap: 50px;
+  margin-top: 50px;
+}
+
+.grid-item {
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid white;
+  
+}
+
+.grid-item-title {
+  margin-top: 0px;
+  font-size: 14px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+.grid-item-content {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.grid-item-content-text {
+  padding: 20px;
+  font-size: 12px;
+}
+
+.grid-item-content-button {
+  margin-top: 30px;
+  font-size: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-right: 25px;
+}
