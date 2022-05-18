@@ -1,0 +1,82 @@
+body {
+  background-color: black;
+  font-family: 'Fira Code', sans-sherif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 40%;
+}
+
+.header {
+  text-align: center;
+}
+
+.header-title {
+  letter-spacing: 1px;
+  font-size: 36px;
+}
+
+.header-text {
+  letter-spacing: 1px;
+  padding: 10px 40px 40px 40px;
+}
+
+.pricing-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pricing-item {
+  border: 5px solid white;
+  border-right: none;
+  width: 33%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.pricing-item:last-child {
+  border-right: 5px solid white;
+}
+
+.pricing-item-text {
+  font-size: 14px;
+}
+
+.pricing-item-price {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.pricing-item-button {
+  font-size: 16px;
+  font-weight: bold;
+  width: 50%;
+}
+
+.pricing-item:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.2);
+/*   border-right: 5px solid black; */
+  margin: 10px;
+  
+  .pricing-item-button {
+    font-size: 16px;
+    font-weight: bold;
+    width: 50%;
+    background-color: black;
+    color: white;
+    z-index: 99;
+    display: block;
+  }
+}
