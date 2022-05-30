@@ -1,0 +1,8 @@
+<h2>Topics</h2>
+<ul class="topics">
+    <li *ngFor="let topic of topics; let i=index">
+        <a routerLink="{{topic[1]}}">#{{i}}  {{topic[0]}}</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>

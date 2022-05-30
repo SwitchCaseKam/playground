@@ -1,0 +1,10 @@
+<div class="a1-container">
+    <h2>A1</h2>
+    <button class="event-trigger-button">emit event</button>
+    <h1>{{num}}</h1>
+    <app-sample-a2 
+        description="description for a2 from a1 as input"
+        [sampleObject]=sampleObject
+        (handlerRandomNumberEvent)="handleIncomingRandomNumber($event)"
+    ></app-sample-a2>
+</div>

@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'pipes', loadChildren: () => import('./pipes/pipes.module').then(m => m.PipesModule) },
   { path: 'flexbox', loadChildren: () => import('./flexbox/flexbox.module').then(m => m.FlexboxModule) },
   { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
+  { path: 'input-output', loadChildren: () => import('./input-output/input-output.module').then(m => m.InputOutputModule) },
   { path: '*', component: AppComponent},
 ];
 

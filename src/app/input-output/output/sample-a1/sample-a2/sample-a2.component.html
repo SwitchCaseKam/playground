@@ -1,0 +1,11 @@
+<div class="a2-container">
+    <h2>A2</h2>
+    <p>{{description}}</p>
+    <button class="event-trigger-button">emit event</button>
+    <app-sample-a3 
+        description=description
+        [elements]=sampleNumberElements
+        [sampleObject]=sampleObject
+        (randomNumberEvent)="handleRandomNumberEvent($event)"
+    ></app-sample-a3>
+</div>

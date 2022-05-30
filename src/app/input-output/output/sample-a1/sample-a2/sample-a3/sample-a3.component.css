@@ -1,0 +1,21 @@
+.a3-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(175, 110, 30);
+}
+
+.event-trigger-button {
+    padding: 5px;
+    font-weight: 200;
+}
+
+h1 {
+    background-color: red;
+    color: white;
+    padding: 20px;
+}

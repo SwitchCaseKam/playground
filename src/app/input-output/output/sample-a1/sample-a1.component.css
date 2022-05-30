@@ -1,0 +1,15 @@
+.a1-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: bisque;
+}
+
+.event-trigger-button {
+    padding: 5px;
+    font-weight: 200;
+}

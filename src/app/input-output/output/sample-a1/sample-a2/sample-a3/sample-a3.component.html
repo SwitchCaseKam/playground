@@ -1,0 +1,10 @@
+<div class="a3-container">
+    <h2>A3</h2>
+    <p>{{description}}</p>
+    <ng-container *ngFor="let elem of elements">{{elem}} </ng-container>
+    <p>{{sampleObject.name}}</p>
+    <p>{{sampleObject.age}}</p>
+    <p>{{sampleObject.tasks}}</p>
+    <h1>{{randomNumber}}</h1>
+    <button class="event-trigger-button" (click)="emitRandomNumber()">emit event</button>
+</div>

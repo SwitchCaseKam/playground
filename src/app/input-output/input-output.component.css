@@ -1,0 +1,16 @@
+.topics {
+    list-style: none;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(56, 51, 51);
+    font-size: 16px;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
