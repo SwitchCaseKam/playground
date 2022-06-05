@@ -1,0 +1,22 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.points {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game-floor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card-item {
+  border: 1px solid white;
+  min-height: 101px;
+}

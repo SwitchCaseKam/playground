@@ -1,0 +1,37 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.points {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+
+}
+
+.grid-cell-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.2px solid white;
+  min-height: 50px;
+}
+
+#start-game-button {
+  font-size: 20px;
+  font-weight: 200;
+  padding: 10px;
+  margin: 10px;
+}
+
+#start-game-button:hover {
+  background-color: aqua;
+  cursor: "pointer";
+}

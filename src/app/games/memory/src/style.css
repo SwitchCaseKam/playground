@@ -1,0 +1,44 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.points {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game-floor {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 10px;
+}
+
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  min-height: 100px;
+  font-size: 50px;
+}
+
+.card-item:hover {
+  border: 1px solid orange;
+  color: orange
+}
+
+.card-item-disabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  min-height: 100px;
+  font-size: 50px;
+  background-color: rgb(156, 192, 147);
+  color: green;
+  pointer-events: none;
+}
+
