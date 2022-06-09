@@ -51,10 +51,14 @@ body {
 
 .ball {
   position: absolute;
-  height: 25px;
+  height: 26px;
   width: 25px;
   border-radius: 100%;
   background-color: rgb(14, 168, 53);
   border: 1px solid grey;
   z-index: 1;
+}
+
+.start-button {
+
 }
