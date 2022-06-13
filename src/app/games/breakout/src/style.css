@@ -28,15 +28,16 @@ body {
 .game-board {
   position: relative;
   display: flex;
-  width: 660px;
+  width: 662px;
   height: 480px;
-  border: 1px solid greenyellow;
+  border: 1px solid rgb(166, 168, 163);
 }
 
 .single-block {
   position: absolute;
   border: 1px solid darkgoldenrod;
-  margin: 2px;
+  background-color: green;
+  margin: 2.5px;
   height: 25px;
   width: 25px;
 }
@@ -54,7 +55,7 @@ body {
   height: 26px;
   width: 25px;
   border-radius: 100%;
-  background-color: rgb(14, 168, 53);
+  background-color: rgb(154, 47, 197);
   border: 1px solid grey;
   z-index: 1;
 }

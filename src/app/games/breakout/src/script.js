@@ -9,19 +9,25 @@ const startButton = document.querySelector('.start-button');
 
 const pointsSpan = document.querySelector('#points-span');
 
-
-
-
 let points = 0;
 
-const blockWidth = 25;
-const blockHeight = 25;
+const blockWidth = 30;
+const blockHeight = 30;
 
 const startingX = 0;
 const startingY = 450;
 
+const gameBoardWidth = 660;
+const gameBoardHeight = 480;
+
 const userPaddleWidth = 100;
 const userPaddleHeight = 20;
+
+const ballWidth = 25;
+
+const userPaddleSingleMove = 15;
+
+const blocksNumber = 132; 
 
 class Block {
   constructor(id, x, y) {
@@ -35,8 +41,8 @@ class Block {
 
 class Ball {
   constructor(x, y) {
-    this.x = x;
-    this.y = y;
+    this.x = x + ballWidth/2;
+    this.y = y + ballWidth/2;
   }
 }
 
@@ -65,10 +71,10 @@ const createBlocks = (blocksNumber) => {
     singleBlock.style.height = blockHeight;
     gameBoard.appendChild(singleBlock);
 
-    currentXPosition += 30;
-    if (currentXPosition > 630) {
+    currentXPosition += blockWidth;
+    if (currentXPosition > gameBoardWidth - blockWidth) {
       currentXPosition = 0;
-      currentYPosition -= 30; 
+      currentYPosition -= blockWidth; 
     }
   }
 }
@@ -76,7 +82,7 @@ const createBlocks = (blocksNumber) => {
 const createUserPaddle = () => {
   const userPaddle = document.createElement('div');
   userPaddle.classList.add('user-paddle');
-  userPaddle.style.left = '300px';
+  userPaddle.style.left = gameBoardWidth / 2 + 'px';
   userPaddle.style.bottom = '20px';
   gameBoard.appendChild(userPaddle);
 
@@ -85,15 +91,15 @@ const createUserPaddle = () => {
 const createBall = () => {
   const ball = document.createElement('div');
   ball.classList.add('ball');
-  ball.style.left = '300px';
-  ball.style.bottom = '28px';
+  ball.style.left = gameBoardWidth / 2 + 'px';
+  ball.style.bottom = gameBoardWidth / 3 + 'px';
   gameBoard.appendChild(ball);
 }
 
 
 
 createBall();
-createBlocks(132)
+createBlocks(blocksNumber);
 createUserPaddle();
 
 const userPaddle = document.querySelector('.user-paddle');
@@ -109,26 +115,29 @@ let userPaddleObj = new UserPaddle(
   Number(userPaddle.style.bottom.split('p')[0])
 );
 
-console.log(userPaddleObj)
+
 
 let moveToLeft = false;
 let moveToDown = false;
 
 window.addEventListener('keydown', (e) => {
+  console.log(userPaddleObj)
   switch (e.key) {
     case 'ArrowLeft':
-      userPaddleObj.leftUp[0] -= 15;
-      userPaddleObj.rightUp[0] -= 15;
+      userPaddleObj.leftUp[0] -= userPaddleSingleMove;
+      userPaddleObj.rightUp[0] -= userPaddleSingleMove;
       if ( userPaddleObj.leftUp[0] < 0) {
         userPaddleObj.leftUp[0] = 0;
+        userPaddleObj.rightUp[0] = userPaddleWidth;
       }
       userPaddle.style.left=  userPaddleObj.leftUp[0] + 'px';
       break;
     case 'ArrowRight':   
-      userPaddleObj.leftUp[0] += 15;
-      userPaddleObj.rightUp[0] += 15;
-      if ( userPaddleObj.leftUp[0] > 555) {
-        userPaddleObj.leftUp[0] = 555;
+      userPaddleObj.leftUp[0] += userPaddleSingleMove;
+      userPaddleObj.rightUp[0] += userPaddleSingleMove;
+      if (userPaddleObj.leftUp[0] > gameBoardWidth - userPaddleWidth) {
+        userPaddleObj.leftUp[0] = gameBoardWidth - userPaddleWidth;
+        userPaddleObj.rightUp[0] = gameBoardWidth;
       }
       userPaddle.style.left=  userPaddleObj.leftUp[0] + 'px';
       break;
@@ -140,7 +149,7 @@ window.addEventListener('keydown', (e) => {
 
 
 setInterval(() => {
-  if (ballObj.x > 640) {
+  if (ballObj.x > gameBoardWidth-ballWidth) {
     moveToLeft = true;
     if (moveToLeft) {
       ballObj.x -= 6;
@@ -178,15 +187,16 @@ setInterval(() => {
       ball.style.bottom= ballObj.y + 2 + 'px';
     }
   } else if (ballObj.y < 0) {
-    gameResult.innerHTML = "You lost!";
-    ball.style.bottom = "28px";
-    ball.style.left = "300px";
+    // gameResult.innerHTML = "You lost!";
+    ball.style.bottom = gameBoardHeight / 5 + 'px';
+    ball.style.left = gameBoardWidth / 2 + 'px';
+
+    ballObj.y = gameBoardHeight / 5;
+    ballObj.x = gameBoardWidth / 2;
     points = 0;
+    moveToDown = false;
     pointsSpan.innerHTML = points;
     // createBlocks(132)
-    setTimeout(() => {
-      gameResult.innerHTML = "";
-    }, 1000);
 
   } else {
     if (moveToDown) {
@@ -212,12 +222,13 @@ setInterval(() => {
         ball.style.bottom=  ballObj.y + 'px';
         points++;
         pointsSpan.innerHTML = points;
-        
-        }
+      }
     }
 
 
-    if (ballObj.x >= userPaddleObj.leftUp[0] && ballObj.x <= userPaddleObj.rightUp[0] && ballObj.y <= userPaddleObj.leftUp[1]) {
+    if (ballObj.x >= userPaddleObj.leftUp[0]
+      && ballObj.x <= userPaddleObj.rightUp[0] 
+      && ballObj.y <= userPaddleObj.leftUp[1]+20) {
       moveToDown = false;
       if (moveToDown) {
         ballObj.y -= 2;
