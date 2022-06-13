@@ -1,6 +1,12 @@
 body {
   background-color: black;
   color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.game-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .flex-main-container {
@@ -15,14 +21,11 @@ body {
   display: flex;
   justify-content: space-around;
   width: 50%;
-  border: 1px solid red;
   padding: 1em;
 }
 
 .game-status-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 0.6rem;
 }
 
 .game-board {
@@ -30,7 +33,7 @@ body {
   display: flex;
   width: 662px;
   height: 480px;
-  border: 1px solid rgb(166, 168, 163);
+  border: 1px solid rgb(200, 204, 195);
 }
 
 .single-block {
@@ -60,6 +63,6 @@ body {
   z-index: 1;
 }
 
-.start-button {
-
+.points-span {
+  font-size: 2rem;
 }
