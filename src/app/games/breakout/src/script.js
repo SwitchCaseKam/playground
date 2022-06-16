@@ -57,6 +57,7 @@ class UserPaddle {
 }
 
 const createBlocks = (blocksNumber) => {
+  blocks = [];
   let currentXPosition = startingX;
   let currentYPosition = startingY;
   for (let blockId = 0; blockId < blocksNumber; blockId++) {
@@ -160,7 +161,7 @@ function handleWallsCollision() {
     points = 0;
     moveToDown = false;
     pointsSpan.innerHTML = points;
-    gameStatusText.innerHTML = "you lost";
+    gameStatusText.innerHTML = "You lost!";
 
     gameStatusText.classList.add('game-result-modal');
     gameStatusText.style.backgroundColor="red";
@@ -168,14 +169,8 @@ function handleWallsCollision() {
       gameStatusText.innerHTML = "";
       gameStatusText.style.backgroundColor="transparent";
     }, 2000);
-
-    // const restartGameButton = document.createElement('button');
-    // restartGameButton.innerHTML = "Again";
-    // gameStatusText.appendChild(restartGameButton);
-    // clearInterval(gameInterval);
-
-    // blocks = [];
-    // createBlocks(blocksNumber);
+    clearBlocks();
+    createBlocks(blocksNumber);
   } else {
     if (moveToDown) {
       ballObj.y -= 2;
@@ -184,6 +179,13 @@ function handleWallsCollision() {
       ballObj.y += 2;
       ball.style.bottom= ballObj.y + 'px';
     }
+  }
+}
+
+function clearBlocks() {
+  const allBlocks = document.querySelectorAll('.single-block');
+  for (i = 0; i < allBlocks.length; i++) {
+    gameBoard.removeChild(allBlocks[i]);
   }
 }
 
@@ -208,20 +210,17 @@ function handleHitBlock() {
       ball.style.bottom = ballObj.y + 'px';
       points++;
       pointsSpan.innerHTML = points;
-      console.log(blocks.length)
 
       if (blocks.length === 0) {
-        gameStatusText.innerHTML = "you won";
-
+        gameStatusText.innerHTML = "You won!";
         gameStatusText.style.backgroundColor="green";
         gameStatusText.classList.add('game-result-modal');    
-        // const restartGameButton = document.createElement('button');
-        // restartGameButton.innerHTML = "Again";
-        // gameStatusText.appendChild(restartGameButton);
         setTimeout(() => {
           gameStatusText.innerHTML = "";
           gameStatusText.style.backgroundColor="transparent";
         }, 2000);
+        clearBlocks();
+        createBlocks(blocksNumber);
       }
     }
   }
