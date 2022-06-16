@@ -219,7 +219,6 @@ function handleHitBlock() {
           gameStatusText.innerHTML = "";
           gameStatusText.style.backgroundColor="transparent";
         }, 2000);
-        clearBlocks();
         createBlocks(blocksNumber);
       }
     }
@@ -273,4 +272,4 @@ gameInterval = setInterval(() => {
   handleWallsCollision();
   handleHitBlock();
   handleUserPaddle();
-}, 20);
+}, 16);
