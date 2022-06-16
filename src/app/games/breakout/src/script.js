@@ -1,5 +1,6 @@
 const gameBoard = document.querySelector('.game-board');
 const gameInfo = document.querySelector('.game-info');
+const gameMainDiv = document.querySelector('body');
 
 const gameStatusText = document.querySelector('.game-status-text');
 const pointsSpan = document.querySelector('.points-span');
@@ -7,7 +8,7 @@ const pointsSpan = document.querySelector('.points-span');
 
 let points = 0;
 
-const blockWidth = 30;
+const blockWidth = 110;
 const blockHeight = 30;
 
 const startingX = 0;
@@ -24,8 +25,10 @@ const ballWidth = 25;
 const userPaddleSingleMove = 15;
 
 
-const blocks = [];
-const blocksNumber = 44; 
+let blocks = [];
+const blocksNumber = 12; 
+
+let gameInterval = null;
 
 class Block {
   constructor(id, x, y) {
@@ -70,7 +73,7 @@ const createBlocks = (blocksNumber) => {
     currentXPosition += blockWidth;
     if (currentXPosition > gameBoardWidth - blockWidth) {
       currentXPosition = 0;
-      currentYPosition -= blockWidth; 
+      currentYPosition -= blockHeight; 
     }
   }
 }
@@ -158,9 +161,21 @@ function handleWallsCollision() {
     moveToDown = false;
     pointsSpan.innerHTML = points;
     gameStatusText.innerHTML = "you lost";
+
+    gameStatusText.classList.add('game-result-modal');
+    gameStatusText.style.backgroundColor="red";
     setTimeout(() => {
       gameStatusText.innerHTML = "";
-    }, 1500)
+      gameStatusText.style.backgroundColor="transparent";
+    }, 2000);
+
+    // const restartGameButton = document.createElement('button');
+    // restartGameButton.innerHTML = "Again";
+    // gameStatusText.appendChild(restartGameButton);
+    // clearInterval(gameInterval);
+
+    // blocks = [];
+    // createBlocks(blocksNumber);
   } else {
     if (moveToDown) {
       ballObj.y -= 2;
@@ -174,10 +189,17 @@ function handleWallsCollision() {
 
 function handleHitBlock() {
   for (let j = 0; j < blocks.length; j++) {
-    if (ballObj.x >= blocks[j].leftDown[0]
-      && ballObj.x <= blocks[j].rightDown[0]
-      && ballObj.y >= blocks[j].leftDown[1]
-      && ballObj.y <= blocks[j].leftUp[1]) {
+    if ((ballObj.x >= blocks[j].leftDown[0]
+      || ballObj.x - ballWidth/3 >= blocks[j].leftDown[0]
+      || ballObj.x + ballWidth/3 >= blocks[j].leftDown[0])
+      && (ballObj.x <= blocks[j].rightDown[0]
+      || ballObj.x - ballWidth/3 <= blocks[j].rightDown[0]
+      || ballObj.x + ballWidth/3 <= blocks[j].rightDown[0])
+      && (ballObj.y >= blocks[j].leftDown[1]
+        || ballObj.y - ballWidth/3 >= blocks[j].leftDown[1]
+        || ballObj.y + ballWidth/3 >= blocks[j].leftDown[1])
+      && ballObj.y <= blocks[j].leftUp[1]
+    ) {
       const allBlocks = Array.from(document.querySelectorAll('.single-block'));
       allBlocks[j].classList.remove('single-block');
       blocks.splice(j, 1);
@@ -186,6 +208,21 @@ function handleHitBlock() {
       ball.style.bottom = ballObj.y + 'px';
       points++;
       pointsSpan.innerHTML = points;
+      console.log(blocks.length)
+
+      if (blocks.length === 0) {
+        gameStatusText.innerHTML = "you won";
+
+        gameStatusText.style.backgroundColor="green";
+        gameStatusText.classList.add('game-result-modal');    
+        // const restartGameButton = document.createElement('button');
+        // restartGameButton.innerHTML = "Again";
+        // gameStatusText.appendChild(restartGameButton);
+        setTimeout(() => {
+          gameStatusText.innerHTML = "";
+          gameStatusText.style.backgroundColor="transparent";
+        }, 2000);
+      }
     }
   }
 }
@@ -233,7 +270,7 @@ function handleUserPaddleMoves() {
 }
 
 handleUserPaddleMoves();
-setInterval(() => {
+gameInterval = setInterval(() => {
   handleWallsCollision();
   handleHitBlock();
   handleUserPaddle();
