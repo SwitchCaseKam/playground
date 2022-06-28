@@ -1,5 +1,5 @@
 <p>directives works!</p>
-<p appColorolly color="red" border="blue">x b c</p>
+<p appColorolly [color]="'red'" [border]="'10px solid black'">x b c</p>
 <p appColorolly>a b c</p>
 <p appColorolly>a b c</p>
 <p appColorolly>a b c</p>
@@ -14,18 +14,23 @@
 
 <div id="ok-button">O K</div>
 
-<ng-template hideAfter [delay]="2000">
+<!-- <ng-template hideAfter [delay]="'2000'">
     <div class="element-dir">
         <p>SAMPLE TEXT</p>
     </div>
-</ng-template>
+</ng-template> -->
 
-<div *hideAfter="2000"class="element-dir">
-    <p>SAMPLE TEXT</p>
+<div *hideAfter="6000 as time; then placeholder; let a = counter" class="element-dir">
+    <p>SAMxPLE TEXT which disapper after {{time}} seconds. </p>
+    <h3>{{a}}</h3>
 </div>
 
 <ng-template customValueProperty [delay]="3000" [color]="'yellow'">
     <div class="custom-element">
         element
     </div>
+</ng-template>
+
+<ng-template #placeholder let-hiddenAfter="hideAfter" >
+    <p>Previous view was visible for {{hiddenAfter}} second</p>
 </ng-template>

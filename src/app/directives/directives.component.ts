@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { fromEvent, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-directives',
   templateUrl: './directives.component.html',
@@ -9,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class DirectivesComponent implements OnInit, OnChanges {
 
+  public border = '10px solid orange';
 
   constructor() { }
 
