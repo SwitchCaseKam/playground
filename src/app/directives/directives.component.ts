@@ -43,4 +43,8 @@ export class DirectivesComponent implements OnInit, OnChanges {
     })
   }
 
+  public handleColorEvent(event: string): void {
+    console.log('handleColorEvent : ', event);
+  }
+
 }

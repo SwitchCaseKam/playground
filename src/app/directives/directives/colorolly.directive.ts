@@ -1,29 +1,27 @@
-import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, Host, HostBinding, HostListener, Input, OnChanges, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
+
 
 @Directive({
   selector: '[appColorolly]'
 })
-export class ColorollyDirective implements OnInit, OnChanges {
+export class ColorollyDirective implements OnInit {
 
-  @Input() color: string = '';
+  @Input() 
+  @HostBinding('style.backgroundColor')
+  color: string = '';
+  @HostBinding('style.border')
   @Input() border: string = '';
-  private defaultColor: string = 'yellow';
+  private defaultColor: string = 'pink';
 
-  constructor(private el: ElementRef) {
-    this.el.nativeElement.style.backgroundColor = this.color;
-  }
+  @Output()
+  colorEvent = new EventEmitter<string>();
+
+  constructor(private el: ElementRef, private renderer2: Renderer2) {}
 
   public ngOnInit(): void {
-    // console.log('color = ', this.color)
-    // console.log('border = ', this.border)
-    // console.log('this.el.nativeElement.style = ', this.el.nativeElement.style)
-    this.el.nativeElement.style.backgroundColor = this.color;
-
-    this.el.nativeElement.style.border = "1px " + this.border;
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
-      console.log('directives: ', changes);
+    // this.renderer2.setStyle(this.el.nativeElement, 'background-color', this.color);
+    // this.renderer2.setStyle(this.el.nativeElement, 'border', this.border !== '' ? this.border : '3px solid purple' );
+    // this.renderer2.setStyle(this.el.nativeElement, 'padding', '10px 2px');
   }
 
   @HostListener('mouseenter') onMouseEnter() {
@@ -31,10 +29,15 @@ export class ColorollyDirective implements OnInit, OnChanges {
   }
 
   @HostListener('mouseout') onMouseLeave() {
-    setTimeout(() => this.highlight(this.defaultColor), 100);
+    this.renderer2.setStyle(this.el.nativeElement, 'background-color', 'yellow');
+    setTimeout(() => this.highlight(this.defaultColor), 300);
+  }
+
+  @HostListener('click') emitColorEvent() {
+    this.colorEvent.emit(this.color);
   }
 
   private highlight(color: string) {
-    this.el.nativeElement.style.backgroundColor = color;
+    this.renderer2.setStyle(this.el.nativeElement, 'background-color', color);
   }
 }
