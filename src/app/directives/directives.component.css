@@ -9,8 +9,6 @@
     background-color: steelblue;
     width: fit-content;
     padding: 10px;
-    animation-name: custom-zoom-animation;
-    animation-duration: 2s;
 }
 
 @keyframes custom-zoom-animation {

@@ -25,11 +25,14 @@
     <h3>{{a}}</h3>
 </div>
 
-<ng-template customValueProperty [delay]="3000" [color]="'yellow'">
-    <div class="custom-element">
-        element
+    <div *hideAfter="5000" customValueProperty 
+        [delay]="3000"
+        [primaryColor]="'yellow'"
+        [secondaryColor]="'blue'"
+        [customText]="'hello hello'" 
+        class="custom-element">element
     </div>
-</ng-template>
+<!-- </ng-template> -->
 
 <ng-template #placeholder let-hiddenAfter="hideAfter" >
     <p>Previous view was visible for {{hiddenAfter}} second</p>
