@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'flexbox', loadChildren: () => import('./flexbox/flexbox.module').then(m => m.FlexboxModule) },
   { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
   { path: 'input-output', loadChildren: () => import('./input-output/input-output.module').then(m => m.InputOutputModule) },
+  { path: 'routes', loadChildren: () => import('./routes/routes.module').then(m => m.RoutesModule) },
   { path: '*', component: AppComponent},
 ];
 
