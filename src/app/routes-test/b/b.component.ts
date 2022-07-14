@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-b',
@@ -8,12 +7,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(
-      params => console.log('B: ', params)
-    )
   }
 
 }
