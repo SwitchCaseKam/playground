@@ -1,0 +1,119 @@
+body {
+  background-color: black;
+  color: white;
+  font-family:  "Gill Sans Extrabold", Helvetica, sans-serif;
+  margin: 0;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+/*   align-items: center; */
+}
+
+.banner {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  background-image: url("https://image.shutterstock.com/image-photo/old-brick-black-color-wall-260nw-1605128917.jpg");
+  padding: 0.3em;
+}
+
+.banner__title {
+  text-transform: uppercase;
+}
+
+.banner__title--large {
+  font-size: 1.2em;
+}
+
+.banner__title--medium {
+  font-size: 0.8em;
+}
+
+.banner__subtitle {
+  font-size: 0.9em;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0em 1em 0em 1em;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo__name {
+    font-size: 1.8em;
+    font-weight: 1000;
+    padding-left: 1em;
+}
+
+.menu-list {
+  border: 1px solid white;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  font-weight: bold;
+  width: 50%
+}
+
+.menu-list__item {
+  padding-right: 1.5em;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25em;
+ }
+
+.articles__searcher {
+  align-self: flex-end;
+  padding-right: 0.5em;
+}
+
+.single-article {
+  font-family: "Courier New";
+  display: flex;
+  flex-direction: column;
+}
+
+.single-article__title {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin: 0.1em;
+}
+
+.single-article__date-author-info {
+  font-size: 2em;
+  margin: 0em;
+}
+
+.single-article__text-content {
+  text-align: justify;
+  row-spacing: 1em;
+  margin: 0em;
+}
+
+.single-article__read-more-button {
+  align-self: flex-end;
+  padding-right: 0.5em;
+  margin-bottom: 1em;
+}
+
+.footer {
+  display: flex;
+  font-size: 0.5em;
+  margin: 0;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid white;
+}
