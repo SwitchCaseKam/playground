@@ -1,0 +1,14 @@
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 16em;
+    margin: 1em;
+}
+
+.groups {
+    margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+}
+

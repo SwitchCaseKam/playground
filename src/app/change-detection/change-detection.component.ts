@@ -9,6 +9,7 @@ export class ChangeDetectionComponent implements OnInit {
 
   public topics: string[][] = [
     ['OnPush', 'on-push'],
+    ['Topo', 'topo'],
   ];
 
   constructor() { }

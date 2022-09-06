@@ -1,0 +1,21 @@
+<div class="group">
+    <div class="header group__header" (dblclick)="toggleExpandedState()">
+        <span>{{ name }}</span>
+        <img *ngIf="!isExpanded" 
+            class="header__arrow" 
+            src="https://img.icons8.com/ios/50/000000/expand-arrow--v1.png"
+            (click)="toggleExpandedState()"
+        />
+        <img *ngIf="isExpanded"
+            class="header__arrow"
+            src="https://img.icons8.com/ios/50/000000/collapse-arrow--v1.png"
+            (click)="toggleExpandedState()"
+        />
+    </div>
+
+    <div *ngIf="isExpanded" class="content group__content">
+        <ng-container *ngFor="let unit of childrenArray">
+            <app-unit [name]="unit.name" [type]="unit.type"></app-unit>
+        </ng-container>
+    </div>
+</div>

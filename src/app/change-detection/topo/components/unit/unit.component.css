@@ -1,0 +1,29 @@
+.unit {
+    border: 1px solid black;
+    background-color: rgb(151, 151, 190);
+    width: 5em;
+    height: 4em;
+    margin: 0.25em;
+}
+
+.unit:hover {
+    background-color: rgb(181, 223, 142);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    row-gap: 1em;
+}
+
+.header__name {
+    font-weight: 500;
+}
+
+.header__type {
+    border: 1px solid black;
+    width: 1.5em;
+    height: 0.5em;
+}

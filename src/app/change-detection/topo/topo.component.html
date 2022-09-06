@@ -1,0 +1,17 @@
+<div class="buttons">
+    <button 
+        (click)="toggleAllTopoExpandedState()"
+        [disabled]="isAllTopoExpanded"
+    >Expand all</button>
+
+    <button
+        (click)="toggleAllTopoExpandedState()"
+        [disabled]="!isAllTopoExpanded"
+    >Collapse all</button>
+</div>
+
+<div class="groups">
+    <ng-container *ngFor="let i of numberOfGroups">
+        <app-group [name]="i.toString()"></app-group>
+    </ng-container>
+</div>

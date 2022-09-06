@@ -1,0 +1,36 @@
+:root {
+    --blue: #6495ed;
+    --white: #faf0e6;
+  }
+
+.group {
+    border: 1px solid black;
+    width: 20em;
+
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1em 0.25em 0.1em 0.25em;
+    border-bottom: 2px solid black;
+}
+
+.header__arrow {
+    border: 1px solid black;
+    border-radius: 10%;
+    height: 1.5em;
+}
+
+.header__arrow:hover {
+    background-color: rgb(104, 104, 177);
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0.5em;
+}
