@@ -56,6 +56,11 @@ export class TopoComponent implements OnInit, AfterViewInit {
     setInterval(
       () => {
         this.n = Math.random().toString().slice(0,4);
+        if (Number(this.n) > 0.5) {
+          this.cdRef.detach();
+        } else {
+          this.cdRef.reattach();
+        }
         this.cdRef.markForCheck();
       }, 1000);
   }
