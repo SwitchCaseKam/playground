@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TopoComponent } from './topo/topo.component';
 import { GroupComponent } from './topo/components/group/group.component';
 import { UnitComponent } from './topo/components/unit/unit.component';
+import { DetailsComponent } from './topo/details/details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UnitComponent } from './topo/components/unit/unit.component';
     ChildComponent,
     TopoComponent,
     GroupComponent,
-    UnitComponent
+    UnitComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,

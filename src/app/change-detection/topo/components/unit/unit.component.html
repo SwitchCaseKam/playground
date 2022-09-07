@@ -1,6 +1,6 @@
-<div class="unit">
+<div class="unit" (click)="displayDetails()">
     <div class="header unit__header">
-        <span class="header__name">{{name}}</span>
-        <div class="header__type" [ngStyle]="{'background-color': type}"></div>
+        <span class="header__name">{{unit.name}}</span>
+        <div class="header__type" [ngStyle]="{'background-color': unit.type}"></div>
     </div>
 </div>

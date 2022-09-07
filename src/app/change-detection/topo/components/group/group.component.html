@@ -15,7 +15,7 @@
 
     <div *ngIf="isExpanded" class="content group__content">
         <ng-container *ngFor="let unit of childrenArray">
-            <app-unit [name]="unit.name" [type]="unit.type"></app-unit>
+            <app-unit [unit]="unit"></app-unit>
         </ng-container>
     </div>
 </div>

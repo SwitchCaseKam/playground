@@ -6,5 +6,6 @@ export enum Type {
 
 export interface Unit {
     name: string,
-    type: Type
+    type: Type,
+    info: string
 }

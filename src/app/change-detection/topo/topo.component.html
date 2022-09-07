@@ -1,17 +1,29 @@
-<div class="buttons">
-    <button 
-        (click)="toggleAllTopoExpandedState()"
-        [disabled]="isAllTopoExpanded"
-    >Expand all</button>
-
-    <button
-        (click)="toggleAllTopoExpandedState()"
-        [disabled]="!isAllTopoExpanded"
-    >Collapse all</button>
-</div>
-
-<div class="groups">
-    <ng-container *ngFor="let i of numberOfGroups">
-        <app-group [name]="i.toString()"></app-group>
-    </ng-container>
+<div class="topo-area">
+    <div class="buttons">
+        <button 
+            (click)="toggleAllTopoExpandedState()"
+            [disabled]="isAllTopoExpanded"
+        >Expand all</button>
+    
+        <button
+            (click)="toggleAllTopoExpandedState()"
+            [disabled]="!isAllTopoExpanded"
+        >Collapse all</button>
+    
+        <button class="buttons__details" (click)="toggleVisibilityOfDetailsWindow()"> << </button>
+        <button (click)="changeN()">x</button>
+    </div>
+    
+    <div class="groups">
+        <ng-container *ngFor="let i of numberOfGroups">
+            <app-group [name]="n"></app-group>
+        </ng-container>
+    </div>
+    
+    <app-details *ngIf="isDetailsWindowDisplayed" 
+        (closeDetails)="handleCloseDetailsWindow()"
+        (displayDetailsEvent)="handleDisplayDetailsWindow($event)"
+        class="details">
+        abcdef
+    </app-details>
 </div>
