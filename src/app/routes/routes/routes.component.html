@@ -1,4 +1,14 @@
 <p>routes</p>
-<button (click)="navigateToA()">A</button>
-<button (click)="navigateToB()">B</button>
+<div>
+    <button (click)="navigateToA()">A</button>
+    <button (click)="navigateToB()">B</button>
+</div>
+<br>
+<div>
+    <button routerLink="public">public</button>
+    <button routerLink="login">login</button>
+    <button routerLink="dashboard">dasboard</button>
+</div>
+
+
 <router-outlet></router-outlet>
