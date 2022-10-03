@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './routes/pages/login/login.component';
+import { DashboardComponent } from './routes/pages/dashboard/dashboard.component';
+import { PublicComponent } from './routes/pages/public/public.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    PublicComponent
   ],
   imports: [
     BrowserModule,

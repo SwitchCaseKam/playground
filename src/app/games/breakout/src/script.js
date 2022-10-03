@@ -272,4 +272,4 @@ gameInterval = setInterval(() => {
   handleWallsCollision();
   handleHitBlock();
   handleUserPaddle();
-}, 16);
+}, 20);

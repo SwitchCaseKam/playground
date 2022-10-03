@@ -1,9 +1,11 @@
 console.log('memory game');
 
-const numberOfElements = 8;
+const numberOfElements = 31;
 let cardsArray = Array.from(Array(numberOfElements).keys());
 let chosenCards = [];
 let points = 0;
+
+let time = 0;
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -22,7 +24,9 @@ function checkChosenCards(card) {
         points++;
         document.getElementById('points').innerHTML = points;
         if (points === numberOfElements) {
-          setTimeout(() => alert('you won'), 500);
+          time = 0;
+          setTimeout(() => alert(`you won. your time = ${time}`), 500);
+          
         }
       }, 400);
     } else {
@@ -34,6 +38,11 @@ function checkChosenCards(card) {
     }
   }
 }
+
+setInterval(() => {
+  time++;
+  document.getElementById('time').innerHTML = time;
+}, 1000);
 
 function prepareGameCards() {
   const gridGameFloor = document.querySelector('.game-floor');

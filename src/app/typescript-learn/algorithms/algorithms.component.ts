@@ -14,7 +14,7 @@ export class AlgorithmsComponent implements OnInit {
   }
 
   public mergeSortExample(): void {
-    console.log(this.mergeSort([3, 1, 5, 2, 4, 3, 8, 1]));
+    console.log(this.mergeSort([3, 1, 5, 2, 4, 3, 8, 1, 6]));
   }
 
   private merge(left :any, right: any) {

@@ -1,4 +1,9 @@
 <p>routes-test works!</p>
 <button (click)="navigateToA()">a</button>
 <button (click)="navigateToB()">b</button>
-<button routerLink="a" [queryParams]="data">a - routerLink</button>
+<button routerLink="['a',  {name: url}]">a - routerLink</button>
+
+<button routerLink="public">public</button>
+<button routerLink="login">login</button>
+<button routerLink="dashboard">dasboard</button>
+<router-outlet></router-outlet>
