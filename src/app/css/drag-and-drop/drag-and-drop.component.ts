@@ -1,4 +1,11 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit } from '@angular/core';
+
+interface TasksStatus {
+  notStarted: string[],
+  inProgress: string[],
+  done: string[]
+}
 
 @Component({
   selector: 'app-drag-and-drop',
@@ -8,6 +15,15 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 export class DragAndDropComponent implements OnInit {
 
   private editArea: ElementRef = new ElementRef({});
+
+  public draggebleItemsNames: string[] = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
+
+  public tasks: TasksStatus = {
+    notStarted: ['clean window', 'wash dishes', 'go to the gym'],
+    inProgress: ['study'],
+    done: ['relax']
+  }
+
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
@@ -19,17 +35,23 @@ export class DragAndDropComponent implements OnInit {
   }
 
   private addClickEventHandler(): void {
-    // this.elementRef.nativeElement.querySelector('.edit-area').addEventListener(
-    //   'click', (event: any) => {
-    //     const el = document.createElement('div');
-    //     el.classList.add('rectangle-div');
-    //     console.log('edit area clicked: offset', event['offsetX'], event['offsetY']);
-    //     console.log('edit area clicked: page', event['pageX'], event['pageY']);
-    //     console.log(el)
-    //     this.elementRef.nativeElement.querySelector('.edit-area').appendChild(el);
+    this.elementRef.nativeElement.querySelector('.edit-area').addEventListener(
+      'click', (event: any) => {
+        const el = document.createElement('div');
+        // el.classList.add('rectangle-div');
+        // console.log('edit area clicked: offset', event['offsetX'], event['offsetY']);
+        // console.log('edit area clicked: page', event['pageX'], event['pageY']);
+        // console.log(el)
+        // this.elementRef.nativeElement.querySelector('.edit-area').appendChild(el);
 
-    //   }
-    // );
+        el.className = 'test';
+        let text = document.createTextNode('Test');
+        el.appendChild(text);
+        el.style.left = event['offsetX'] + 'px';
+        el.style.top = event['offsetY'] + 'px';
+        this.elementRef.nativeElement.querySelector('.edit-area').appendChild(el);
+      }
+    );
   }
 
   public addnNewDiv(event: Event) {
@@ -39,6 +61,8 @@ export class DragAndDropComponent implements OnInit {
     el.className = 'test';
     let text = document.createTextNode('Test');
     el.appendChild(text);
+    // el.style.left = event['offsetX'] + 'px';
+    // el.style.top = event['offsetY'] + 'px';
     this.elementRef.nativeElement.querySelector('.edit-area').appendChild(el);
     // this.elementRef.nativeElement.querySelector('.edit-area').classList.add('rectangle-div');
     // document.getElementById('area')?.appendChild(el)
@@ -55,5 +79,25 @@ export class DragAndDropComponent implements OnInit {
         this.elementRef.nativeElement.querySelector('.moving-circle').style.backgroundColor = 'aqua'
         console.log(this.elementRef.nativeElement.querySelector('.moving-circle'))
     });
+  }
+
+  public drop(event: CdkDragDrop<string[]>) {
+    console.log('draggable event: ', event)
+    moveItemInArray(this.draggebleItemsNames, event.previousIndex, event.currentIndex);
+    console.log(this.draggebleItemsNames)
+  }
+
+  public dropItemInList(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+    console.log(this.tasks)
   }
 }

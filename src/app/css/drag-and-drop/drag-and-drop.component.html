@@ -1,5 +1,65 @@
 <p>drag and drop example</p>
-<div id="area" class="edit-area" (click)="addnNewDiv($event)">
+<div id="area" class="edit-area">
     <div class="moving-circle"></div>
 </div>
+
+<div class="draggable-area" cdkDropList (cdkDropListDropped)="drop($event)">
+
+    <div *ngFor="let name of draggebleItemsNames" class="draggable-item" cdkDrag>
+        {{name}}
+    </div>
+    
+</div>
+
+<div 
+    class="tasks"
+    cdkDropList
+    #notStartedList="cdkDropList"
+    [cdkDropListData]="tasks.notStarted"
+    [cdkDropListConnectedTo]="[inProgressList]"
+    (cdkDropListDropped)="dropItemInList($event)"
+>
+    <div class="not-started-tasks tasks-area">
+        <p>Not started</p>
+        <div 
+            class="draggable-item"
+            cdkDrag
+            *ngFor="let task of tasks.notStarted"
+        >{{task}}</div>
+    </div>
+
+    <div 
+        class="in-progress-tasks tasks-area"
+        cdkDropList
+        #inProgressList="cdkDropList"
+        [cdkDropListData]="tasks.inProgress"
+        [cdkDropListConnectedTo]="[doneList, notStartedList]"
+        (cdkDropListDropped)="dropItemInList($event)"
+    >
+        <p>In progress</p>
+        <div
+            class="draggable-item"
+            cdkDrag
+            *ngFor="let task of tasks.inProgress"
+        >{{task}}</div>
+    </div>
+
+    <div 
+        class="done-tasks tasks-area" 
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="tasks.done"
+        [cdkDropListConnectedTo]="[inProgressList]"
+        (cdkDropListDropped)="dropItemInList($event)"
+    >
+        <p>Done</p>
+        <div 
+            class="draggable-item"
+            cdkDrag
+            *ngFor="let task of tasks.done"
+        >{{task}}</div>
+    </div>
+
+</div>
+
 <p>-</p>
